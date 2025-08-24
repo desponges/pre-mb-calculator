@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
             result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. You can still make it. Don't give up! You need ${(100 - score.toFixed(2)).toFixed(2)} to pass. Work harder!`;
             result.style.color = "red";
         }
+
+        displayResetButton(form); // Show reset button after displaying the result
     }
 
     function validateInputs(form, inputs) {
@@ -55,6 +57,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         clearAlert(form); // Clear alert if validation passes
         return true;
+    }
+
+    function displayResetButton(form) {
+        let resetButton = form.querySelector(".reset-button");
+        if (!resetButton) {
+            resetButton = document.createElement("button");
+            resetButton.className = "reset-button";
+            resetButton.textContent = "Reset";
+            resetButton.style.marginTop = "10px";
+            resetButton.style.backgroundColor = "#ff4d4d";
+            resetButton.style.color = "white";
+            resetButton.style.border = "none";
+            resetButton.style.padding = "10px";
+            resetButton.style.borderRadius = "6px";
+            resetButton.style.cursor = "pointer";
+            form.appendChild(resetButton);
+
+            resetButton.addEventListener("click", () => {
+                resetForm(form);
+                resetButton.remove(); // Remove the reset button after clicking
+            });
+        }
+    }
+
+    function resetForm(form) {
+        const inputs = form.querySelectorAll("input[type='text']");
+        inputs.forEach(input => input.value = ""); // Clear all input fields
+        const result = form.querySelector(".result");
+        if (result) result.remove(); // Remove the result display
+        clearAlert(form); // Clear any existing alert
     }
 
     // Physiology/BCM Calculation
@@ -92,5 +124,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         displayResult(anatomyForm, prembScore);
     });
-
 });
