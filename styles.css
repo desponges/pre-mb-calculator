@@ -1,0 +1,149 @@
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #f7f9fb;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    width: 100%;
+    background-color: purple;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    height: 40px; /* Ensure consistent height */
+}
+
+.banner .content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: moveBanner 10s linear infinite;
+}
+
+.banner .content span {
+    margin-right: 50px; /* Space between repeated messages */
+}
+
+@keyframes moveBanner {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+.phybcm, .anatomy {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 32px 28px;
+    width: 320px;
+}
+
+h3, h2{
+    text-align: center;
+    color: #2d6cdf;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: #2d6cdf;
+    outline: none;
+}
+
+button {
+    margin-top: 18px;
+    padding: 12px 0;
+    background: #2d6cdf;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #1a4fa3;
+}
+
+footer{
+    text-align: center; 
+    margin: 20px; 
+    font-size: 0.9rem; 
+    color: #555;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .phybcm, .anatomy {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+    
+}
