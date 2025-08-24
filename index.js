@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (score > 70) {
-            result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. Dear Scholar, you are in a safe zone but don't relax yet. You need ${100 - score.toFixed(2)} to pass.`;
+            result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. Dear Scholar, you are in a safe zone but don't relax yet. You need ${(100 - score.toFixed(2)).toFixed(2)} to pass.`;
             result.style.color = "purple";
         } else if (score >= 50) {
-            result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. You are likely to pass. You need ${100 - score.toFixed(2)} to pass. Keep pushing!`;
+            result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. You are likely to pass. You need ${(100 - score.toFixed(2)).toFixed(2)} to pass. Keep pushing!`;
             result.style.color = "green";
         } else {
-            result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. You can still make it. Don't give up! You need ${100 - score.toFixed(2)} to pass. Work harder!`;
+            result.textContent = `Your Pre-MB Score is ${score.toFixed(2)}. You can still make it. Don't give up! You need ${(100 - score.toFixed(2)).toFixed(2)} to pass. Work harder!`;
             result.style.color = "red";
         }
     }
@@ -92,4 +92,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
         displayResult(anatomyForm, prembScore);
     });
+
 });
